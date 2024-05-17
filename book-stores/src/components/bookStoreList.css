@@ -1,11 +1,14 @@
+.container{
+    margin: 0 auto;
+    max-width: 1600px;
+    width: 100%;
+}
 .store-container {  
     align-items: center;
     background: #fff;
     border: 1px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    height: 50%;
     padding: 20px;
     margin: 15px;
 }
@@ -13,12 +16,9 @@
 .store-details {
     flex-direction: row;
     align-items: center;
-    text-align: center;
     justify-items: center;
     display: flex;
-    align-content: center;
     justify-content: space-evenly;
-
 }
 
 .store-header {
@@ -30,13 +30,23 @@
     margin-right: 20px; 
     margin-left: 20px; 
 }
+.header{
+    display: contents;
+   
+}
 
 .store-image {
-    /* flex: 0.5; */
     border-radius: 100%;
     width: 10rem;
     height: 10rem;
     padding: 15px;
+    object-fit: cover;
+}
+.store-image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    object-fit: cover;
 }
 
 .store-flag {
@@ -52,11 +62,11 @@
 }
 
 .star {
-    color: gray;
+    color: #808080;
 }
 
 .star.filled {
-    color: gold;
+    color:#ffd700;
 }
 
 .star.half-filled {
@@ -65,7 +75,7 @@
 
 .star.half-filled::before {
     content: '\u2605';
-    color: gold;
+    color: #ffd700;
     position: absolute;
     width: 50%;
     overflow: hidden;
@@ -94,5 +104,52 @@
 .website{
     padding-left: 25px;
 }
+
+@media only screen and (max-width: 600px) {
+    .store-details {
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .store-establishment-date-flag {
+        display: flex; 
+        justify-content: space-between; 
+        flex: 1; 
+        margin-right: 20px; 
+        flex-direction: column;
+        align-items: center;
+    }
+    .website{
+        padding-left: 25px;
+        text-align: center;
+    }
+    a{
+        display: block;
+    }
+    .header{
+        align-items: center;
+        flex-direction: column-reverse;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+    }
+    .star-rating {
+        display: block;
+        font-size: 24px;
+        line-height: 1;
+        text-align: center;
+    }
+    h1 {
+        display: block;
+        text-align: center;
+    }
+      
+  }
+
+
 
 

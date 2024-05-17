@@ -30,11 +30,11 @@ class BookStore extends Component {
         const stars = [];
         for (let i = 1; i <= 5; i++) {
             if (i <= filledStars) {
-                stars.push(<span key={i} className="star filled" style={{ color: 'gold' }}>&#9733;</span>);
+                stars.push(<span key={i} className="star filled">&#9733;</span>);
             } else if (hasHalfStar && i === filledStars + 1) {
-                stars.push(<span key={i} className="star half-filled" style={{ color: 'gold' }}>&#9733;</span>);
+                stars.push(<span key={i} className="star half-filled" >&#9733;</span>);
             } else {
-                stars.push(<span key={i} className="star empty" style={{ color: 'grey' }}>&#9733;</span>);
+                stars.push(<span key={i} className="star empty">&#9733;</span>);
             }
         }
         return <div className="star-rating">{stars}</div>;
@@ -98,10 +98,6 @@ class BookStore extends Component {
                 }
             })
             this.setState({stores: stores})
-            console.log("STORES", stores)
-            
-            
-
         } catch (error) {
             console.error('Error fetching data:', error);
             throw error;
@@ -115,7 +111,7 @@ class BookStore extends Component {
         if (!stores) return <div>Loading...</div>;
 
         return (
-            <div>
+            <div className='container'>
                 {stores.map((store, index) => (
                     <div className="store-container">
                         <div key={index}>
@@ -124,12 +120,13 @@ class BookStore extends Component {
                                     <img
                                         src={store.attributes.storeImage}
                                         alt={`Store ${store.attributes.name}`}
-                                        className="store-image"
                                     />
                                 </div>
-                                <div className= "store-header">
-                                    <h1>{store.attributes.name}</h1>                       
-                                    {this.starRating(store.attributes.rating)}
+                                <div className="store-header">
+                                    <div className='header'>
+                                        <h1>{store.attributes.name}</h1>                       
+                                        {this.starRating(store.attributes.rating)}
+                                    </div>
                                     {store.topTwoBooks && store.topTwoBooks.length > 0 ? (
                                         <table className="book-table">
                                             <colgroup>
